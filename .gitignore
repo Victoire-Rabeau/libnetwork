@@ -3,3 +3,6 @@
 
 # Doxygen
 docs/doxygen*
+
+# cmake
+*build*
