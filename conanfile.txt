@@ -1,0 +1,12 @@
+[requires]
+asio/1.21.0
+
+[options]
+*:shared=True
+
+[imports]
+lib, *.so* -> lib
+bin, *.dll -> bin
+
+[generators]
+cmake
