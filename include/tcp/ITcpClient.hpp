@@ -9,7 +9,7 @@ namespace network::tcp
 {
     /**
      * @interface ITcpClient
-     * @brief Implements a tcp client interface
+     * @brief Implements a tcp client interface with synchronous and asynchronous methods
      * @tparam Request The request type
      * @tparam Response The response type
      */
@@ -26,7 +26,7 @@ namespace network::tcp
             void connect(Address const &peer) = 0;
 
             /**
-             * @brief Disconnects the client from it's peer
+             * @brief Disconnects the client from its peer
              */
             void disconnect() = 0;
 
