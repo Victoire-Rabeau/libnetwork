@@ -21,13 +21,13 @@ add_subdirectory(include/)
 add_subdirectory(src/)
 
 add_library(
-    ${NAME}
+    ${NAME} SHARED
         ${INCLUDES}
         ${SRCS}
 )
 
 target_include_directories(
     ${NAME}
-        PRIVATE
+        PUBLIC
         include/
 )
