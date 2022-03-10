@@ -1,6 +1,8 @@
 #ifndef ITCPLISTENER_HPP
 #define ITCPLISTENER_HPP
 
+#include <memory>
+
 #include "ITcpClient.hpp"
 
 namespace network::tcp
@@ -16,17 +18,17 @@ namespace network::tcp
     {
         public:
 
-            virtual ITcpListener = default;
+             virtual ~ITcpListener() = default;
 
             /**
              * @brief Runs the listener
              */
-            void run(std::function<void (int, std::unique_ptr<network::tcp::ITcpClient<Request, Response>>> &&callback) noexcept;
+            virtual void run(std::function<void (int, std::unique_ptr<network::tcp::ITcpClient<Request, Response>>)> &&callback) noexcept = 0;
 
             /**
              * @brief Stops the listener
              */
-            void stop() noexcept;
+            virtual void stop() noexcept = 0;
 
     };
 }

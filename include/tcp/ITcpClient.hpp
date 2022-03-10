@@ -23,12 +23,12 @@ namespace network::tcp
              * @brief Connects the client to a peer
              * @param[in] peer The peer's address
              */
-            void connect(Address const &peer) = 0;
+            virtual void connect(Address const &peer) = 0;
 
             /**
              * @brief Disconnects the client from its peer
              */
-            void disconnect() = 0;
+            virtual void disconnect() = 0;
 
             /**
              * @brief Sends data to the connected peer synchronously
