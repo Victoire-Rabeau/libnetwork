@@ -12,6 +12,10 @@ else()
     message(FATAL_ERROR "conanbuildinfo.cmake not found. Run conan install")
 endif()
 
+if (UNIX)
+    add_compile_options(-Wall -Wextra)
+endif()
+
 if (DEFINED ENABLE_TESTING AND "${ENABLE_TESTING}" STREQUAL "yes")
     message(STATUS "ENABLE_TESTING=yes detected, enabling testing")
     add_subdirectory(tests)
@@ -26,8 +30,15 @@ add_library(
         ${SRCS}
 )
 
+target_precompile_headers(${NAME} PUBLIC ${INCLUDES})
+
 target_include_directories(
     ${NAME}
         PUBLIC
         include/
+)
+
+conan_target_link_libraries(
+        ${NAME}
+        CONAN_PKG::asio
 )
